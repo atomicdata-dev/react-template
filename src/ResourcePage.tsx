@@ -1,5 +1,7 @@
 import {
+  urls,
   useResource,
+  useString,
   useTitle
 } from "@tomic/react";
 
@@ -19,9 +21,12 @@ export function ResourcePage({ subject }: Props) {
   // If none are available, it will create one from the subject URL.
   const title = useTitle(resource);
 
+  const [description] = useString(resource, urls.properties.description);
+
   return (
     <div>
       <h2>Title: {title}</h2>
+      <p>{description}</p>
     </div>
   );
 }
