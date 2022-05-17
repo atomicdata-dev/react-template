@@ -23,7 +23,9 @@ export function ResourcePage({ subject }: Props) {
   const title = useTitle(resource);
 
   // Render the description property!
-  const [description] = useString(resource, properties.description);
+  const [description, setDescription] = useString(resource, properties.description, {
+    commit: true
+  });
 
   // If something goes wrong while fetching the resource, there will be an error here
   if (resource.error) {
@@ -50,6 +52,7 @@ export function ResourcePage({ subject }: Props) {
     <div>
       <h2>Title: {title}</h2>
       <p>{description}</p>
+      <textarea onChange={(e) => setDescription(e.target.value)} value={description || ""} />
       {propVals.map(([prop, val]) => {
         if (except.includes(prop)) {
           return null;

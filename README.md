@@ -22,8 +22,13 @@ yarn run dev
 - Import `Store` and `StoreContext` from `@tomic/react`.
 - Instantiate a `Store`.
 - Wrap contents in `App` in the `StoreContext.Provider`, and pass it a newly instantiated `Store`.
-- Create a new `Browser` resource that will handle navigation of current Resource
-- Create `ResourcePage` with a simple Title shown
-- Render a `description` property using `useString`
-- Add `loading` and `error` states
-- Render values using `ValueComp` and `PropVal`
+- Let's view some data!
+  - Create a new `Browser` resource that will handle navigation of current Resource
+  - Create `ResourcePage` with a simple Title shown
+  - Render a `description` property using `useString`
+  - Add `loading` and `error` states
+  - Render values using `ValueComp` and `PropVal`
+- Let's edit data!
+  - Create an Atomic Data agent on https://atomicdata.dev/invites/1
+  - Go to User Settings and copy the `secret`
+  - Return the second `set` function from `useString`, and call this when the input of the description changes

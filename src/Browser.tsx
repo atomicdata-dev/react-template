@@ -1,9 +1,11 @@
+import { useCurrentAgent } from "@tomic/react";
 import { useState } from "react";
 import { ResourcePage } from "./ResourcePage";
 
 export default function Browser() {
+  const [agent] = useCurrentAgent();
 
-  const [subject, setSubject] = useState<string>("https://atomicdata.dev/agents/QmfpRIBn2JYEatT0MjSkMNoBJzstz19orwnT5oT2rcQ=/");
+  const [subject, setSubject] = useState<string>(agent?.subject || "");
 
   return (
     <>
