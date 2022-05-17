@@ -21,7 +21,19 @@ export function ResourcePage({ subject }: Props) {
   // If none are available, it will create one from the subject URL.
   const title = useTitle(resource);
 
+  // Render the description property!
   const [description] = useString(resource, urls.properties.description);
+
+  // If something goes wrong while fetching the resource, there will be an error here
+  if (resource.error) {
+    return <div>{resource.getError().message}</div>;
+  }
+
+  // While the resource is being fetched, this will be true
+  if (resource.loading) {
+    return <div>loading...</div>;
+  }
+
 
   return (
     <div>
