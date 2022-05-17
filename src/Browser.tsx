@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { ResourcePage } from "./ResourcePage";
 
 export default function Browser() {
 
-  const [subject, setSubject] = useState<string | undefined>();
+  const [subject, setSubject] = useState<string>("https://atomicdata.dev/agents/QmfpRIBn2JYEatT0MjSkMNoBJzstz19orwnT5oT2rcQ=/");
 
   return (
     <>

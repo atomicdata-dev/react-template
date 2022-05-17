@@ -23,3 +23,4 @@ yarn run dev
 - Instantiate a `Store`.
 - Wrap contents in `App` in the `StoreContext.Provider`, and pass it a newly instantiated `Store`.
 - Create a new `Browser` resource that will handle navigation of current Resource
+- Create `ResourcePage` with a simple Title shown
