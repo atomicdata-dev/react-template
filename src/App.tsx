@@ -10,7 +10,7 @@ function App() {
   return (
     <StoreContext.Provider value={store}>
       <div className="App">
-        <h1>hello world</h1>
+        <h1>Atomic Browser</h1>
       </div>
     </StoreContext.Provider>
   )
