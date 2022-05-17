@@ -19,7 +19,7 @@ export function ResourcePage({ subject }: Props) {
   const resource = useResource(subject);
 
   // The useTitle hook internally checks for various properties that could be used as a title.
-  // If none are available, it will create one from the subject URL.
+// If none are available, it will create one from the subject URL.
   const title = useTitle(resource);
 
   // Render the description property!
@@ -57,7 +57,7 @@ export function ResourcePage({ subject }: Props) {
         if (except.includes(prop)) {
           return null;
         }
-        return <PropVal key={prop} propertyURL={prop} value={val} />;
+        return <PropVal propertyURL={prop} value={val} />;
       })}
     </div>
   );

@@ -8,6 +8,8 @@ import {
   valToArray,
   JSONValue
 } from "@tomic/react";
+import { useContext } from "react";
+import { AppContext } from "./Browser";
 
 type LinkProps = {
   subject: string;
@@ -17,10 +19,15 @@ type LinkProps = {
 function Link({ subject }: LinkProps) {
   const resource = useResource(subject);
   const title = useTitle(resource);
+  const {setSubject} = useContext(AppContext);
 
   return (
     <a
       href={subject}
+      onClick={(e) => {
+        e.preventDefault();
+        setSubject(subject);
+      }}
     >
       {title}
     </a>

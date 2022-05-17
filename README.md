@@ -32,3 +32,7 @@ yarn run dev
   - Create an Atomic Data agent on https://atomicdata.dev/invites/1
   - Go to User Settings and copy the `secret`
   - Return the second `set` function from `useString`, and call this when the input of the description changes
+- Let's add routing / navigation
+  - Create a `Context` in `Browser.tsx` for navigation
+  - Give it the `setState` for the current `subject`
+  - consume it where you want to handle navigation actions using `useContext`

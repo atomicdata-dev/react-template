@@ -1,4 +1,6 @@
 import { useProperty, truncateUrl, JSONValue } from "@tomic/react";
+import { useContext } from "react";
+import { AppContext } from "./Browser";
 import ValueComp from "./ValueComp";
 
 type Props = {
@@ -11,12 +13,14 @@ function PropVal({ propertyURL, value }: Props) {
   // This hook converts a property URL into a full Property object with title, description and more.
   const property = useProperty(propertyURL);
   const truncated = truncateUrl(propertyURL, 10, true);
+  const {setSubject} = useContext(AppContext);
 
   return (
     <div>
       <h3 title={property.description}>
         <a
           href={propertyURL}
+          onClick={(e) => {e.preventDefault(); setSubject(propertyURL);}}
         >
           {property.error ? (
             <span>{truncated}</span>
