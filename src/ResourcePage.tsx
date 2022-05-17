@@ -1,9 +1,10 @@
 import {
-  urls,
+  properties,
   useResource,
   useString,
   useTitle
 } from "@tomic/react";
+import PropVal from "./PropVal";
 
 interface Props {
   /** The subject URL - the identifier of the resource. */
@@ -22,7 +23,7 @@ export function ResourcePage({ subject }: Props) {
   const title = useTitle(resource);
 
   // Render the description property!
-  const [description] = useString(resource, urls.properties.description);
+  const [description] = useString(resource, properties.description);
 
   // If something goes wrong while fetching the resource, there will be an error here
   if (resource.error) {
@@ -34,11 +35,27 @@ export function ResourcePage({ subject }: Props) {
     return <div>loading...</div>;
   }
 
+  // And let's also render all the properties that we didn't think of.
+  // To do that, we take the map of all the PropVals and render these in a PropVal component.
+  const propVals = [...resource.getPropVals()];
+
+  // ... except for the ones we've already rendered!
+  const except = [
+    properties.description,
+    properties.name,
+    properties.shortname
+  ];
 
   return (
     <div>
       <h2>Title: {title}</h2>
       <p>{description}</p>
+      {propVals.map(([prop, val]) => {
+        if (except.includes(prop)) {
+          return null;
+        }
+        return <PropVal key={prop} propertyURL={prop} value={val} />;
+      })}
     </div>
   );
 }

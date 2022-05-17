@@ -26,3 +26,4 @@ yarn run dev
 - Create `ResourcePage` with a simple Title shown
 - Render a `description` property using `useString`
 - Add `loading` and `error` states
+- Render values using `ValueComp` and `PropVal`
